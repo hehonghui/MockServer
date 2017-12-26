@@ -1,0 +1,83 @@
+{
+  "login_info": {
+    "status": 0,
+    "has_registered": true,
+    "gender": null,
+    "registered": 0,
+    "atype": 2,
+    "source": "android",
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFuZHJvaWRfMWY1MTQ0Njc5NGU2MTg2OTgyM2I0YjQ4MDhmYjFmY2MiLCJhY2NvdW50X3R5cGUiOjIsInVzZXJfaWQiOiI1OTljZjc5ZTE5YWU5MjUxMjFiNTlmMDYiLCJleHAiOjE1MjIwNTE1MTV9.nruPaCBZi-wBaqjVnUd_6V3Ps3jH2NzMCF8ITGBR9ww",
+    "avatar": {
+      "origin": "http://static.newsdog.today/avatar/65.png",
+      "thumbnail": "http://static.newsdog.today/avatar/65.png"
+    },
+    "id": "599cf79e19ae925121b59f06",
+    "name": "Mr Obama"
+  },
+  "city": {
+    "name": "delhi",
+    "title": "Delhi"
+  },
+  "promotion": {
+    "live": true,
+    "join_cash": 50
+  },
+  "categories": [{
+    "name": "rec",
+    "title": "For you"
+  }, {
+    "name": "entertainment",
+    "title": "Entertainment"
+  }, {
+    "name": "local",
+    "title": "Local"
+  }, {
+    "name": "video",
+    "title": "Videos"
+  }, {
+    "name": "image",
+    "title": "Beauty"
+  }, {
+    "name": "cricket",
+    "title": "Cricket"
+  }, {
+    "name": "technology",
+    "title": "Technology"
+  }, {
+    "name": "health",
+    "title": "Health"
+  }, {
+    "name": "auto",
+    "title": "Auto"
+  }, {
+    "name": "world",
+    "title": "World"
+  }, {
+    "name": "politics",
+    "title": "Politics"
+  }, {
+    "name": "national",
+    "title": "National"
+  }, {
+    "name": "lifestyle",
+    "title": "Lifestyle"
+  }, {
+    "name": "sports",
+    "title": "Sports"
+  }, {
+    "name": "business",
+    "title": "Business"
+  }, {
+    "name": "education",
+    "title": "Education"
+  }, {
+    "name": "offbeat",
+    "title": "Offbeat"
+  }, {
+    "name": "jobs",
+    "title": "Job"
+  }, {
+    "name": "funny",
+    "title": "LOL"
+  }]
+}

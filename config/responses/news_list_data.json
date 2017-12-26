@@ -1,0 +1,151 @@
+{
+  "articles": [
+    {
+      "top_images": [{
+        "origin": "http://image.newsdog.today/origin_936e9022d89d8b9a9d6173fdbd6b66fc",
+        "width": 600,
+        "thumb_height": 113,
+        "thumb": "http://image.newsdog.today/thumb_936e9022d89d8b9a9d6173fdbd6b66fc",
+        "thumb_width": 200,
+        "source": "http://a57.foxnews.com/media2.foxnews.com/BrightCove/694940094001/2016/12/23/876/493/694940094001_5260046098001_Israeli-ambassador-to-UN-We-are-disappointed.jpg?ve=1&tl=1",
+        "height": 338
+      }],
+      "partner_switch": false,
+      "related_images": [{
+        "origin": "http://image.newsdog.today/origin_936e9022d89d8b9a9d6173fdbd6b66fc",
+        "source": "http://a57.foxnews.com/media2.foxnews.com/BrightCove/694940094001/2016/12/23/876/493/694940094001_5260046098001_Israeli-ambassador-to-UN-We-are-disappointed.jpg?ve=1&tl=1",
+        "thumb_height": 113,
+        "thumb": "http://image.newsdog.today/thumb_936e9022d89d8b9a9d6173fdbd6b66fc",
+        "thumb_width": 200,
+        "width": 600,
+        "height": 338
+      }],
+      "title": "Trump was right to try to stop Obama from tying his hands on Israel",
+      "seq_id": 220955201,
+      "is_hot": 1,
+      "site_url": "www.foxnews.com",
+      "source": "Fox News",
+      "published_at": "2016-12-24 00:00:00",
+      "like_count": 1,
+      "comments_count": 0,
+      "op_recommend": false,
+      "source_url": "http://www.foxnews.com/opinion/2016/12/23/trump-was-right-to-try-to-stop-obama-from-tying-his-hands-on-israel.html?fromNewsdog=1&utm_source=NewsDog",
+      "type": "article",
+      "id": "585dc7fc12907172872e38fb",
+      "bigger": null
+    }
+  ],
+  "topics": {
+    "loc": 0,
+    "data": [
+      {
+        "detail": "this is detail",
+        "title": "this is title",
+        "block_images": [
+          {
+            "origin": "http://image.newsdog.today/origin_2f32e0c42c46bc8d44181160e2200e1c",
+            "width": 600,
+            "thumb_height": 113,
+            "thumb": "http://image.newsdog.today/thumb_2f32e0c42c46bc8d44181160e2200e1c",
+            "thumb_width": 200,
+            "source": "http://data1.ibtimes.co.in/cache-img-0-450/en/full/624947/1477910547_upcoming-tata-motors-vehicles.jpg",
+            "height": 338
+          }
+        ],
+        "images": [
+          {
+            "origin": "http://image.newsdog.today/origin_2f32e0c42c46bc8d44181160e2200e1c",
+            "source": "http://data1.ibtimes.co.in/cache-img-0-450/en/full/624947/1477910547_upcoming-tata-motors-vehicles.jpg",
+            "thumb_height": 113,
+            "thumb": "http://image.newsdog.today/thumb_2f32e0c42c46bc8d44181160e2200e1c",
+            "thumb_width": 200,
+            "width": 600,
+            "height": 338
+          },
+          {
+            "origin": "http://image.newsdog.today/origin_fddcb97d983e78ff5abd1ca89a5253e7",
+            "source": "http://data1.ibtimes.co.in/cache-img-0-450/en/full/623642/1477910547_tata-hexa.jpg",
+            "thumb_height": 133,
+            "thumb": "http://image.newsdog.today/thumb_fddcb97d983e78ff5abd1ca89a5253e7",
+            "thumb_width": 200,
+            "width": 600,
+            "height": 400
+          },
+          {
+            "origin": "http://image.newsdog.today/origin_cda965984d625a18ac3522fa0f314644",
+            "source": "http://data1.ibtimes.co.in/cache-img-700-420/en/full/600225/1477910547_tata-kite-5.jpg",
+            "thumb_height": 120,
+            "thumb": "http://image.newsdog.today/thumb_cda965984d625a18ac3522fa0f314644",
+            "thumb_width": 200,
+            "width": 600,
+            "height": 360
+          }
+        ],
+        "type": "topic",
+        "id": "581b04dc19ae920e5d4fe2df",
+        "expire_at": "2016-11-06 09:36:05",
+        "desc": "this is desc"
+      }
+    ]
+  },
+  "video": {
+    "loc": 2,
+    "data": {
+      "category": null,
+      "top_images": [
+        {
+          "origin": "http://image.newsdog.today/origin_ac153540efcea5481800fe9356dbd01c",
+          "width": 480,
+          "thumb_height": 225,
+          "thumb": "http://image.newsdog.today/thumb_ac153540efcea5481800fe9356dbd01c",
+          "thumb_width": 300,
+          "source": "https://i4.ytimg.com/vi/k4NrC9n6pLo/hqdefault.jpg",
+          "height": 360
+        }
+      ],
+      "liked": false,
+      "favored": false,
+      "seq_id": 297859,
+      "shared_count": null,
+      "youtube": [
+        "k4NrC9n6pLo"
+      ],
+      "ad_type": "fb",
+      "share_url": "http://www.newsdogshare.com/a/youtube_video/581af3fbe264506697ed77fc/?from=56f4ada3cdffbc368c953306",
+      "content": "SUKU SUKU Full Video Song | Tutak Tutak Tutiya | Prabhudeva ,Sonu Sood & Tamannaah",
+      "source": "T-Series",
+      "like_count": 1,
+      "comments_count": null,
+      "type": "youtube_video",
+      "id": "581af3fbe264506697ed77fc"
+    }
+  },
+  "gif": {
+    "loc": 5,
+    "data": {
+      "category": null,
+      "top_images": [{
+        "origin": "http://image.newsdog.today/origin_6e7e95c52ac42463ef174613b05d0896",
+        "source": "https://m.popkey.co/473730/zExZ7_f-thumbnail-100-0.jpg",
+        "thumb_height": 150,
+        "thumb": "http://image.newsdog.today/thumb_6e7e95c52ac42463ef174613b05d0896",
+        "thumb_width": 300,
+        "width": 500,
+        "height": 250
+      }],
+      "liked": false,
+      "load_ad": true,
+      "favored": false,
+      "seq_id": 336464,
+      "shared_count": null,
+      "share_url": "http://www.newsdogshare.com/a/funny/585a200519ae927168851c98/?from=569efed4cdffbc14e5f0ab54",
+      "content": "",
+      "like_count": 0,
+      "comments_count": null,
+      "video": "http://image.newsdog.today/popkey_2a4442",
+      "type": "funny",
+      "id":"585a200519ae927168851c98"
+    }
+  },
+  "refresh_id": "efbfc77de6709b2e56c505e665faee81"
+}
