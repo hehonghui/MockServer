@@ -2,10 +2,11 @@ package main
 
 import (
 	"fmt"
-	"github.com/gin-gonic/gin"
 	"io/ioutil"
 	"encoding/json"
 	"github.com/pkg/errors"
+	"log"
+	"net/http"
 )
 
 // request & response mapping struct
@@ -20,10 +21,6 @@ func (data *RespMapping) String() string  {
 	return fmt.Sprintf("path : %s, method : %s, file : %s .", data.Path, data.Method, data.RespFilePath)
 }
 
-// type define
-type StringMap map[string]interface{}
-
-
 // mappings slice
 var mappings []*RespMapping
 
@@ -33,7 +30,6 @@ var mappings []*RespMapping
 // 3. 返回结果
 
 func main() {
-	fmt.Println("init mock server ...")
 	err := readConfig("/Users/mrsimple/GoProjects/src/mockserver/config/mapping.json")
 	if err == nil {
 		createRouter()
@@ -55,55 +51,49 @@ func readConfig(configFile string) error  {
 
 
 func createRouter() {
-	router := gin.Default()
-	fmt.Println("==========================================> init router START ")
+	fmt.Println("=================================================> init router START ")
+	router := http.NewServeMux()
 	for _, item := range mappings {
-		fmt.Println("route path , " , item.Path, ", resp : ", item.RespFilePath)
-		router.Handle(item.Method, item.Path, processRequest)
+		fmt.Println("route : " , item)
+		router.HandleFunc(item.Path, processRequest)
 	}
-	fmt.Println("==========================================> init router END ! \n\n")
-	router.Run(":10086")
+	fmt.Println("================================================> init router END ! ")
+	fmt.Println()
+
+	err := http.ListenAndServe(":10086", router)
+	log.Fatal(err)
 }
 
-
-// 根据请求的path, method 找到对应的映射, 然后解析为json, 如果解析为json失败则尝试解析为json array.
-func processRequest(c *gin.Context) {
+func processRequest(w http.ResponseWriter, r *http.Request)  {
 	defer func() {
 		// error 异常处理.
 		if err := recover(); err != nil {
-			c.JSON(-1, StringMap{"-1": -1, "err_msg": err.(string)})
+			writeResponse(w, -1, []byte(err.(string)))
 		}
 	}()
-	item, notFound := findRespMapping(c)
+	item, notFound := findRespMapping(r)
 	if notFound != nil {
 		panic("Not found RespMapping!")
 	}
 	result, err := ioutil.ReadFile(item.RespFilePath)
 	//fmt.Println("resp file , " , item.RespFilePath, ", path : ", c.Request.URL.Path)
 	if err == nil {
-		// string to map, and then map to json
-		var resp StringMap
-		jsonErr := json.Unmarshal(result, &resp)
-		if jsonErr == nil {
-			c.JSON(200, resp )
-		} else {
-			fmt.Println("json parse error : ", jsonErr)
-			// json array 的返回结果
-			var arrayResult []StringMap
-			jsonArrayErr := json.Unmarshal(result, &arrayResult)
-			if jsonArrayErr == nil {
-				c.JSON(200, arrayResult )
-			} else {
-				panic("Unmarshal data to json error")
-			}
-		}
+		writeResponse(w, 200, result)
+	} else {
+		panic("Not found response data for : " + r.URL.Path)
 	}
 }
 
-func findRespMapping(c *gin.Context) (*RespMapping, error) {
+func writeResponse(writer http.ResponseWriter, code int, body []byte)  {
+	writer.Header().Add("Content-Type", "application/json")
+	writer.WriteHeader(code)
+	writer.Write(body)
+}
+
+func findRespMapping(r *http.Request) (*RespMapping, error) {
 	for _, item := range mappings {
 		//fmt.Println("find resp file , " , item.RespFilePath, ", path : ", c.Request.URL.Path)
-		if item.Path == c.Request.URL.Path && item.Method == c.Request.Method {
+		if item.Path == r.URL.Path && item.Method == r.Method {
 			return item, nil
 		}
 	}
