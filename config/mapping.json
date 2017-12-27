@@ -1,7 +1,7 @@
 [
   {
     "path": "/v4/users/",
-    "method": "GET",
+    "method": "POST",
     "resp_file": "/Users/mrsimple/GoProjects/src/mockserver/config/responses/users_resp.json"
   },
   {

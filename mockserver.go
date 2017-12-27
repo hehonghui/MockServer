@@ -8,6 +8,7 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"mockserver/common"
 )
 
 // request & response mapping struct
@@ -75,15 +76,17 @@ func processRequest(w http.ResponseWriter, r *http.Request)  {
 	defer func() {
 		// error 异常处理.
 		if err := recover(); err != nil {
-			writeResponse(w, -1, []byte(err.(string)))
+			resultMap := common.StringMap {"err_msg":err.(string), "path": r.URL.Path, "method": r.Method }
+			result,_ := json.Marshal(resultMap)
+			writeResponse(w, -1, result)
 		}
 	}()
+	fmt.Println("==> Request path : ", r.URL.Path, " , method : ", r.Method)
 	item, notFound := findRespMapping(mappings, r)
 	if notFound != nil {
 		panic("Not found RespMapping!")
 	}
 	result, err := ioutil.ReadFile(item.RespFilePath)
-	fmt.Println("Request path : ", r.URL.Path , " ===>  Response file , " , item.RespFilePath, )
 	if err == nil {
 		writeResponse(w, 200, result)
 	} else {
@@ -99,8 +102,8 @@ func writeResponse(writer http.ResponseWriter, code int, body []byte)  {
 
 func findRespMapping(mappings []*RespMapping, r *http.Request) (*RespMapping, error) {
 	for _, item := range mappings {
-		//fmt.Println("find resp file , " , item.RespFilePath, ", path : ", c.Request.URL.Path)
 		if item.Path == r.URL.Path && item.Method == r.Method {
+			fmt.Println(">>> find resp file : " , item.RespFilePath, ", path : ", r.URL.Path, "method : ", r.Method)
 			return item, nil
 		}
 	}
