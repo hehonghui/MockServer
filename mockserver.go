@@ -78,7 +78,7 @@ func processRequest(w http.ResponseWriter, r *http.Request)  {
 			writeResponse(w, -1, []byte(err.(string)))
 		}
 	}()
-	item, notFound := findRespMapping(r)
+	item, notFound := findRespMapping(mappings, r)
 	if notFound != nil {
 		panic("Not found RespMapping!")
 	}
@@ -97,7 +97,7 @@ func writeResponse(writer http.ResponseWriter, code int, body []byte)  {
 	writer.Write(body)
 }
 
-func findRespMapping(r *http.Request) (*RespMapping, error) {
+func findRespMapping(mappings []*RespMapping, r *http.Request) (*RespMapping, error) {
 	for _, item := range mappings {
 		//fmt.Println("find resp file , " , item.RespFilePath, ", path : ", c.Request.URL.Path)
 		if item.Path == r.URL.Path && item.Method == r.Method {
