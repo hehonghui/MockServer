@@ -8,5 +8,10 @@
     "path": "/v5/categories/rec/articles/next/",
     "method": "GET",
     "resp_file": "/Users/mrsimple/GoProjects/src/mockserver/config/responses/news_list_data.json"
+  },
+  {
+    "path": "/v9/categories/sorted/",
+    "method": "GET",
+    "resp_file": "/Users/mrsimple/GoProjects/src/mockserver/config/responses/channels.json"
   }
 ]

@@ -1,0 +1,58 @@
+[{
+  "name": "rec",
+  "title": "For you"
+}, {
+  "name": "entertainment",
+  "title": "Entertainment"
+}, {
+  "name": "local",
+  "title": "Local"
+}, {
+  "name": "video",
+  "title": "Videos"
+}, {
+  "name": "image",
+  "title": "Beauty"
+}, {
+  "name": "cricket",
+  "title": "Cricket"
+}, {
+  "name": "technology",
+  "title": "Technology"
+}, {
+  "name": "health",
+  "title": "Health"
+}, {
+  "name": "auto",
+  "title": "Auto"
+}, {
+  "name": "world",
+  "title": "World"
+}, {
+  "name": "politics",
+  "title": "Politics"
+}, {
+  "name": "national",
+  "title": "National"
+}, {
+  "name": "lifestyle",
+  "title": "Lifestyle"
+}, {
+  "name": "sports",
+  "title": "Sports"
+}, {
+  "name": "business",
+  "title": "Business"
+}, {
+  "name": "education",
+  "title": "Education"
+}, {
+  "name": "offbeat",
+  "title": "Offbeat"
+}, {
+  "name": "jobs",
+  "title": "Job"
+}, {
+  "name": "funny",
+  "title": "LOL"
+}]
