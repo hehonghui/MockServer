@@ -4,6 +4,7 @@ import (
 	"io/ioutil"
 	"encoding/json"
 	"fmt"
+	"github.com/pkg/errors"
 )
 
 type RespMapping struct {
@@ -13,39 +14,32 @@ type RespMapping struct {
 }
 
 type MappingGroup struct {
-	GETS []RespMapping
-	POSTS []RespMapping
+	Maps []*RespMapping
 }
 
 func (data *RespMapping) String() string  {
 	return fmt.Sprintf("path : %s, method : %s, file : %s .", data.Path, data.Method, data.RespFile)
 }
 
-func ReadConfig(configFile string) *MappingGroup  {
-	var slice = make([]RespMapping, 0)
+func ReadConfig(configFile string) (*MappingGroup, error)  {
+	var slice = make([]*RespMapping, 0)
 	configData, err := ioutil.ReadFile(configFile)
 	//fmt.Println("read data from ", configFile, ", data is : \n ", string(configData))
 	if  err == nil {
 		json.Unmarshal(configData, &slice)
-		return groupRequest(slice)
+		return groupRequest(slice), nil
 	} else {
 		fmt.Println("read resp mapping file error !!!")
-		return nil
+		return nil, errors.New("read resp mapping file error !!!")
 	}
 }
 
-func groupRequest(mappings []RespMapping) *MappingGroup {
+func groupRequest(mappings []*RespMapping) *MappingGroup {
 	group := new(MappingGroup)
 	for _, item := range mappings  {
-		fmt.Println("resp mock item :", item.String() )
-
-		if item.Method == "GET" {
-			group.GETS = append(group.GETS, item)
-		}
-		if item.Method == "POST" {
-			group.POSTS = append(group.POSTS, item)
-		}
+		group.Maps = append(group.Maps, item)
 	}
+	fmt.Println("resp mock item :", group.Maps )
 	return group
 }
 
