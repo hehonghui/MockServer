@@ -7,6 +7,7 @@ import (
 	"github.com/pkg/errors"
 	"log"
 	"net/http"
+	"os"
 )
 
 // request & response mapping struct
@@ -30,7 +31,13 @@ var mappings []*RespMapping
 // 3. 返回结果
 
 func main() {
-	err := readConfig("/Users/mrsimple/GoProjects/src/mockserver/config/mapping.json")
+	mappingFilePath := "/Users/mrsimple/GoProjects/src/mockserver/config/mapping.json"
+	if len(os.Args) == 2 {
+		mappingFilePath = os.Args[1]
+	}
+	fmt.Println("====> Mapping file is ", mappingFilePath)
+
+	err := readConfig(mappingFilePath)
 	if err == nil {
 		createRouter()
 	} else {
