@@ -8,29 +8,30 @@ import (
 	"github.com/pkg/errors"
 )
 
-
-var mappings []*RespMapping
-
-
+// request & response mapping struct
 type RespMapping struct {
 	Path         string `json:"path"`      // 请求的path
 	Method       string `json:"method"`    // 请求方式
 	RespFilePath string `json:"resp_file"` // 存储返回值的文件路径
 }
 
-type StringMap map[string]interface{}
-
 
 func (data *RespMapping) String() string  {
 	return fmt.Sprintf("path : %s, method : %s, file : %s .", data.Path, data.Method, data.RespFilePath)
 }
 
+// type define
+type StringMap map[string]interface{}
 
-/**
- *	1. 读取mock配置
- *	2. 添加router 处理
- *	3. 返回结果
- */
+
+// mappings slice
+var mappings []*RespMapping
+
+
+// 1. 读取mock配置
+// 2. 添加router 处理
+// 3. 返回结果
+
 func main() {
 	fmt.Println("init mock server ...")
 	err := readConfig("/Users/mrsimple/GoProjects/src/mockserver/config/mapping.json")
@@ -55,10 +56,12 @@ func readConfig(configFile string) error  {
 
 func createRouter() {
 	router := gin.Default()
+	fmt.Println("==========================================> init router START ")
 	for _, item := range mappings {
 		fmt.Println("route path , " , item.Path, ", resp : ", item.RespFilePath)
 		router.Handle(item.Method, item.Path, processRequest)
 	}
+	fmt.Println("==========================================> init router END ! \n\n")
 	router.Run(":10086")
 }
 
