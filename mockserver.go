@@ -76,7 +76,7 @@ func processRequest(w http.ResponseWriter, r *http.Request)  {
 		panic("Not found RespMapping!")
 	}
 	result, err := ioutil.ReadFile(item.RespFilePath)
-	//fmt.Println("resp file , " , item.RespFilePath, ", path : ", c.Request.URL.Path)
+	fmt.Println("Request path : ", r.URL.Path , " ===>  Response file , " , item.RespFilePath, )
 	if err == nil {
 		writeResponse(w, 200, result)
 	} else {
